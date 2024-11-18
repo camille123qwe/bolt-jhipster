@@ -9,7 +9,11 @@ import com.mycompany.myapp.security.SecurityUtils;
 import com.mycompany.myapp.service.dto.AdminUserDTO;
 import com.mycompany.myapp.service.dto.UserDTO;
 import java.time.Instant;
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -91,13 +95,13 @@ public class UserService {
      */
     @Transactional(readOnly = true)
     public List<String> getAuthorities() {
-        return authorityRepository.findAll().stream().map(Authority::getName).toList();
+        return authorityRepository.findAll().stream().map(Authority::getName).collect(Collectors.toList());
     }
 
     private User syncUserWithIdP(Map<String, Object> details, User user) {
         // save authorities in to sync user roles/groups between IdP and JHipster's local database
         Collection<String> dbAuthorities = getAuthorities();
-        Collection<String> userAuthorities = user.getAuthorities().stream().map(Authority::getName).toList();
+        Collection<String> userAuthorities = user.getAuthorities().stream().map(Authority::getName).collect(Collectors.toList());
         for (String authority : userAuthorities) {
             if (!dbAuthorities.contains(authority)) {
                 LOG.debug("Saving authority '{}' in local database", authority);
@@ -111,7 +115,11 @@ public class UserService {
         if (existingUser.isPresent()) {
             // if IdP sends last updated information, use it to determine if an update should happen
             if (details.get("updated_at") != null) {
-                Instant dbModifiedDate = existingUser.orElseThrow().getLastModifiedDate();
+                Instant dbModifiedDate = existingUser
+                    .orElseThrow(() -> {
+                        throw new RuntimeException();
+                    })
+                    .getLastModifiedDate();
                 Instant idpModifiedDate;
                 if (details.get("updated_at") instanceof Instant) {
                     idpModifiedDate = (Instant) details.get("updated_at");
@@ -179,15 +187,15 @@ public class UserService {
         }
         // handle resource server JWT, where sub claim is email and uid is ID
         if (details.get("uid") != null) {
-            user.setId((String) details.get("uid"));
+            user.setId(Long.valueOf((String) details.get("uid")));
             user.setLogin(sub);
         } else {
-            user.setId(sub);
+            user.setId(Long.valueOf(sub));
         }
         if (username != null) {
             user.setLogin(username);
         } else if (user.getLogin() == null) {
-            user.setLogin(user.getId());
+            user.setLogin(String.valueOf(user.getId()));
         }
         if (details.get("given_name") != null) {
             user.setFirstName((String) details.get("given_name"));

@@ -1,0 +1,28 @@
+{
+  "app1App": {
+    "app1ExecutionType": {
+      "home": {
+        "title": "Execution Types",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Execution Type",
+        "createOrEditLabel": "Create or edit a Execution Type",
+        "notFound": "No Execution Types found"
+      },
+      "created": "A new Execution Type is created with identifier {{ param }}",
+      "updated": "A Execution Type is updated with identifier {{ param }}",
+      "deleted": "A Execution Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Execution Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Execution Type"
+      },
+      "id": "Id",
+      "uuid": "Uuid",
+      "name": "Name",
+      "label": "Label",
+      "description": "Description",
+      "createdAt": "Created At"
+    }
+  }
+}

@@ -16,7 +16,6 @@ import org.springframework.boot.info.BuildProperties;
 import org.springframework.boot.info.GitProperties;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
-import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import tech.jhipster.config.JHipsterProperties;
@@ -74,6 +73,12 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.repository.UserRepository.USERS_BY_LOGIN_CACHE, jcacheConfiguration);
             createCache(cm, com.mycompany.myapp.repository.UserRepository.USERS_BY_EMAIL_CACHE, jcacheConfiguration);
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName(), jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Project.class.getName(), jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Device.class.getName(), jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Strategy.class.getName(), jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.ExecutionType.class.getName(), jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Source.class.getName(), jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Customer.class.getName(), jcacheConfiguration);
             // jhipster-needle-redis-add-entry
         };
     }

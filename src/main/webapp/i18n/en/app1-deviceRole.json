@@ -1,0 +1,10 @@
+{
+  "app1App": {
+    "DeviceRole": {
+      "null": "",
+      "ACTION_DEVICE": "ACTION_DEVICE",
+      "CONDITION_DEVICE": "CONDITION_DEVICE",
+      "NONE": "NONE"
+    }
+  }
+}

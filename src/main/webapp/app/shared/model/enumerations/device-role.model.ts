@@ -1,0 +1,7 @@
+export enum DeviceRole {
+  ACTION_DEVICE = 'ACTION_DEVICE',
+
+  CONDITION_DEVICE = 'CONDITION_DEVICE',
+
+  NONE = 'NONE',
+}

@@ -4,7 +4,11 @@ import com.mycompany.myapp.domain.Authority;
 import com.mycompany.myapp.domain.User;
 import com.mycompany.myapp.service.dto.AdminUserDTO;
 import com.mycompany.myapp.service.dto.UserDTO;
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapping;
@@ -80,7 +84,7 @@ public class UserMapper {
         return authorities;
     }
 
-    public User userFromId(String id) {
+    public User userFromId(Long id) {
         if (id == null) {
             return null;
         }

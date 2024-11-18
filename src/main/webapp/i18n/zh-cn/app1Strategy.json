@@ -1,0 +1,32 @@
+{
+  "app1App": {
+    "app1Strategy": {
+      "home": {
+        "title": "Strategies",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Strategy",
+        "createOrEditLabel": "创建或编辑 Strategy",
+        "notFound": "No Strategies found"
+      },
+      "created": "Strategy {{ param }} 创建成功",
+      "updated": "Strategy {{ param }} 更新成功",
+      "deleted": "Strategy {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Strategy {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Strategy"
+      },
+      "id": "Id",
+      "uuid": "Uuid",
+      "label": "Label",
+      "description": "Description",
+      "createdAt": "Created At",
+      "executionRule": "Execution Rule",
+      "status": "Status",
+      "executionType": "Execution Type",
+      "source": "Source",
+      "project": "Project"
+    }
+  }
+}

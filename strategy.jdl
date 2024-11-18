@@ -1,0 +1,111 @@
+// Entities for Party (User, Project, Device)
+entity User {
+    id Long required, // 唯一标识符
+    uuid UUID required,
+    name String required,
+    label String,
+    description String,
+    role UserRole,  // 角色字段
+    createdAt ZonedDateTime required
+}
+
+entity Project {
+    id Long required, // 唯一标识符
+    uuid UUID required,
+    name String required,
+    label String,
+    description String,
+    role ProjectRole, // 角色字段
+    createdAt ZonedDateTime required
+}
+
+entity Device {
+    id Long required, // 唯一标识符
+    uuid UUID required,
+    name String required,
+    label String,
+    description String,
+    role DeviceRole, // 角色字段
+    createdAt ZonedDateTime required
+}
+
+// Entity for MomentInterval (Strategy)
+entity Strategy {
+    id Long required, // 唯一标识符
+    uuid UUID required,
+    label String required,
+    description String,
+    createdAt ZonedDateTime required,
+    executionRule String required,
+    status Status required
+}
+
+// Entities for ExecutionType, Source, Customer (Description)
+entity ExecutionType {
+    id Long required, // 唯一标识符
+    uuid UUID required,
+    name String required,
+    label String,
+    description String,
+    createdAt ZonedDateTime required
+}
+
+entity Source {
+    id Long required, // 唯一标识符
+    uuid UUID required,
+    name String required,
+    label String,
+    description String,
+    createdAt ZonedDateTime required
+}
+
+entity Customer {
+    id Long required, // 唯一标识符
+    uuid UUID required,
+    name String required,
+    label String,
+    description String,
+    createdAt ZonedDateTime required
+}
+
+// Enumeration for Status
+enum Status {
+    Active,
+    Inactive
+}
+
+// Enumeration for UserRole
+enum UserRole {
+    SYSTEM_ADMINISTRATOR, // 系统管理员
+    NONE // 默认无角色
+}
+
+// Enumeration for ProjectRole
+enum ProjectRole {
+    STRATEGY_OWNER, // 策略所有者
+    NONE // 默认无角色
+}
+
+// Enumeration for DeviceRole
+enum DeviceRole {
+    ACTION_DEVICE, // 动作设备
+    CONDITION_DEVICE, // 条件设备
+    NONE // 默认无角色
+}
+
+// Relationships
+
+relationship ManyToOne {
+    Strategy{executionType(id)} to ExecutionType,
+    Strategy{source(id)} to Source,
+    Project{customer(id)} to Customer
+}
+
+// StrategyOwner 作为 Project 的角色
+relationship ManyToOne {
+    Strategy{project(id)} to Project
+}
+
+// Pagination and service options
+paginate User, Project, Device, Strategy with pagination
+service all with serviceClass

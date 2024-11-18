@@ -1,0 +1,9 @@
+{
+  "app1App": {
+    "Status": {
+      "null": "",
+      "Active": "Active",
+      "Inactive": "Inactive"
+    }
+  }
+}

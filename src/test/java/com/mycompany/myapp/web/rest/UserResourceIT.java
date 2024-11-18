@@ -1,8 +1,6 @@
 package com.mycompany.myapp.web.rest;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mycompany.myapp.IntegrationTest;
@@ -11,8 +9,9 @@ import com.mycompany.myapp.repository.UserRepository;
 import com.mycompany.myapp.security.AuthoritiesConstants;
 import com.mycompany.myapp.service.mapper.UserMapper;
 import jakarta.persistence.EntityManager;
-import java.util.*;
+import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 import java.util.function.Consumer;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.AfterEach;
@@ -35,7 +34,7 @@ class UserResourceIT {
 
     private static final String DEFAULT_LOGIN = "johndoe";
 
-    private static final String DEFAULT_ID = "id1";
+    private static final Long DEFAULT_ID = 1L;
 
     private static final String DEFAULT_EMAIL = "johndoe@localhost";
 
@@ -75,7 +74,7 @@ class UserResourceIT {
      */
     public static User createEntity() {
         User persistUser = new User();
-        persistUser.setId(UUID.randomUUID().toString());
+        persistUser.setId(Long.valueOf(UUID.randomUUID().toString()));
         persistUser.setLogin(DEFAULT_LOGIN + RandomStringUtils.randomAlphabetic(5));
         persistUser.setActivated(true);
         persistUser.setEmail(RandomStringUtils.randomAlphabetic(5) + DEFAULT_EMAIL);
@@ -120,7 +119,7 @@ class UserResourceIT {
         User user2 = new User();
         user2.setId(user1.getId());
         assertThat(user1).isEqualTo(user2);
-        user2.setId("id2");
+        user2.setId(2L);
         assertThat(user1).isNotEqualTo(user2);
         user1.setId(null);
         assertThat(user1).isNotEqualTo(user2);

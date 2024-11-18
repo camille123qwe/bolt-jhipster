@@ -1,0 +1,28 @@
+{
+  "app1App": {
+    "app1Source": {
+      "home": {
+        "title": "Sources",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Source",
+        "createOrEditLabel": "创建或编辑 Source",
+        "notFound": "No Sources found"
+      },
+      "created": "Source {{ param }} 创建成功",
+      "updated": "Source {{ param }} 更新成功",
+      "deleted": "Source {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Source {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Source"
+      },
+      "id": "Id",
+      "uuid": "Uuid",
+      "name": "Name",
+      "label": "Label",
+      "description": "Description",
+      "createdAt": "Created At"
+    }
+  }
+}

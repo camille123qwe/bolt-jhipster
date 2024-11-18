@@ -1,0 +1,29 @@
+{
+  "app1App": {
+    "app1Device": {
+      "home": {
+        "title": "Devices",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Device",
+        "createOrEditLabel": "Create or edit a Device",
+        "notFound": "No Devices found"
+      },
+      "created": "A new Device is created with identifier {{ param }}",
+      "updated": "A Device is updated with identifier {{ param }}",
+      "deleted": "A Device is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Device {{ id }}?"
+      },
+      "detail": {
+        "title": "Device"
+      },
+      "id": "Id",
+      "uuid": "Uuid",
+      "name": "Name",
+      "label": "Label",
+      "description": "Description",
+      "role": "Role",
+      "createdAt": "Created At"
+    }
+  }
+}

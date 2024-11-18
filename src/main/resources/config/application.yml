@@ -112,7 +112,7 @@ spring:
           enabled: false
   docker:
     compose:
-      enabled: true
+      enabled: false
       lifecycle-management: start-only
       file: src/main/docker/mysql.yml
   profiles:
@@ -166,7 +166,7 @@ spring:
       client:
         provider:
           oidc:
-            issuer-uri: http://localhost:9080/realms/jhipster
+            issuer-uri: http://localhost:8080/realms/jhipster
         registration:
           oidc:
             client-id: internal

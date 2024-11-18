@@ -1,0 +1,28 @@
+{
+  "app1App": {
+    "app1Customer": {
+      "home": {
+        "title": "Customers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Customer",
+        "createOrEditLabel": "创建或编辑 Customer",
+        "notFound": "No Customers found"
+      },
+      "created": "Customer {{ param }} 创建成功",
+      "updated": "Customer {{ param }} 更新成功",
+      "deleted": "Customer {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Customer {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Customer"
+      },
+      "id": "Id",
+      "uuid": "Uuid",
+      "name": "Name",
+      "label": "Label",
+      "description": "Description",
+      "createdAt": "Created At"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "app1App": {
+    "app1ExecutionType": {
+      "home": {
+        "title": "Execution Types",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Execution Type",
+        "createOrEditLabel": "创建或编辑 Execution Type",
+        "notFound": "No Execution Types found"
+      },
+      "created": "Execution Type {{ param }} 创建成功",
+      "updated": "Execution Type {{ param }} 更新成功",
+      "deleted": "Execution Type {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Execution Type {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Execution Type"
+      },
+      "id": "Id",
+      "uuid": "Uuid",
+      "name": "Name",
+      "label": "Label",
+      "description": "Description",
+      "createdAt": "Created At"
+    }
+  }
+}
